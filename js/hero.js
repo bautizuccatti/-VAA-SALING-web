@@ -3,11 +3,8 @@
 ========================= */
 
 function initHero() {
-
     initTypeWriter();
-
     initHeroScroll();
-
 }
 
 
@@ -16,35 +13,60 @@ function initHero() {
 ========================= */
 
 function initTypeWriter() {
-
     const heroTitle = document.querySelector(".hero__title");
 
     if (!heroTitle) {
         return;
     }
 
-    const text = heroTitle.dataset.text;
+    let typingTimeout;
+    let animationVersion = 0;
 
-    heroTitle.textContent = "";
+    function startTypeWriter(delay = 500) {
+        /*
+         * Cada vez que se reinicia la animación,
+         * aumenta la versión para cancelar la anterior.
+         */
+        animationVersion++;
 
-    let currentLetter = 0;
+        const currentVersion = animationVersion;
+        const text = heroTitle.dataset.text || "";
 
-    function writeLetter() {
+        clearTimeout(typingTimeout);
 
-        if (currentLetter >= text.length) {
-            return;
+        heroTitle.textContent = "";
+
+        let currentLetter = 0;
+
+        function writeLetter() {
+            /*
+             * Si comenzó una animación nueva,
+             * la anterior deja de escribir.
+             */
+            if (currentVersion !== animationVersion) {
+                return;
+            }
+
+            if (currentLetter >= text.length) {
+                return;
+            }
+
+            heroTitle.textContent += text[currentLetter];
+            currentLetter++;
+
+            typingTimeout = setTimeout(writeLetter, 35);
         }
 
-        heroTitle.textContent += text[currentLetter];
-
-        currentLetter++;
-
-        setTimeout(writeLetter, 35);
-
+        typingTimeout = setTimeout(writeLetter, delay);
     }
 
-    setTimeout(writeLetter, 500);
+    // Primera animación al cargar la página
+    startTypeWriter();
 
+    // Reinicia la consola al cambiar el idioma
+    document.addEventListener("languageChanged", () => {
+        startTypeWriter(100);
+    });
 }
 
 
@@ -53,7 +75,6 @@ function initTypeWriter() {
 ========================= */
 
 function initHeroScroll() {
-
     const hero = document.querySelector(".hero");
     const heroTitleBox = document.querySelector(".hero__title-box");
 
@@ -62,7 +83,6 @@ function initHeroScroll() {
     }
 
     function updateHeroOnScroll() {
-
         const heroHeight = hero.offsetHeight;
 
         const progress = Math.min(
@@ -76,7 +96,6 @@ function initHeroScroll() {
             "--box-scale",
             boxScale
         );
-
     }
 
     window.addEventListener(
@@ -85,5 +104,4 @@ function initHeroScroll() {
     );
 
     updateHeroOnScroll();
-
 }

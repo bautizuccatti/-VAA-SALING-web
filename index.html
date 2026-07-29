@@ -6,6 +6,12 @@
     <meta name="viewport"content="width=device-width, initial-scale=1.0">
     <title>VA'A Sailing</title>
     <link rel="icon" type="image/png" href="img/barco-papel/barco-p4.jpg">
+
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin="">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,51 +25,108 @@
 
 <body>
 <!--HEADER-->
-    <header class="header">
-        <a href="index.html" class="header__logo">
-            <img src="img/logo-barco/l-b5.png" alt="Logo de VA'A Sailing">
-        </a>
-        <nav class="header__nav">
-            <ul class="header__menu">
-                <li> <a href="#nosotros">Nosotros</a> </li>
+<header class="header">
 
-                <li> <a href="#episodios">Episodios</a> </li>
+    <a href="index.html" class="header__logo">
+        <img src="img/logo-barco/l-b5.png" alt="VA'A Sailing Logo">
+    </a>
 
-                <li> <a href="#en-vivo">En vivo</a> </li>
+    <nav class="header__nav">
 
-                <li> <a href="#ods-zero">NDS Zero</a> </li>
+        <ul class="header__menu">
 
-                <li> <a href="#colaborar">Colaborar</a> </li>
-            </ul>
-        </nav>
+            <li>
+                <a href="#nosotros" data-i18n="menu.about">
+                    Nosotros
+                </a>
+            </li>
 
-        <div class="header__languages">
-            <button type="button">ES</button>
-            <button type="button">EN</button>
-        </div>
-    </header>
+            <li>
+                <a href="#episodios" data-i18n="menu.episodes">
+                    Episodios
+                </a>
+            </li>
+
+            <li>
+                <a href="#mapa" data-i18n="menu.live">
+                    En vivo
+                </a>
+            </li>
+
+            <li>
+                <a href="#ods-zero" data-i18n="menu.nds">
+                    NDS Zero
+                </a>
+            </li>
+
+            <li>
+                <a href="#colaborar" data-i18n="menu.support">
+                    Colaborar
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <div class="header__languages">
+
+        <button
+            type="button"
+            data-language="es"
+            class="language-button language-button--active"
+        >
+            ES
+        </button>
+
+        <button
+            type="button"
+            data-language="en"
+            class="language-button"
+        >
+            EN
+        </button>
+
+    </div>
+
+</header>
 <!--FIN HEADER-->
 
 <!--MAIN-->
 <main>
     
 <!--? hero-->
-    <section class="hero" id="inicio">
+
+<section class="hero" id="inicio">
+
     <div class="hero__content">
+
         <div class="hero__title-box">
+
             <div class="hero-console">
+
                 <div class="hero-console__top">
-                    <span class="hero-console__status">
-                        ● ONLINE
+
+                    <span
+                        class="hero-console__status"
+                        data-i18n="hero.status"
+                    >
+                        ● EN LÍNEA
                     </span>
+
                     <span class="hero-console__coords">
                         LAT 37° S · LON 58° W
                     </span>
+
                 </div>
+
                 <div class="hero-console__screen">
-                    <h1
-                        class="hero__title"
-                        data-text="VA'A SAILING
+                
+                <h1
+    class="hero__title"
+    data-i18n-key="hero.console"
+    data-i18n-attr="data-text"
+    data-text="VA'A SAILING
 
 Inicializando bitácora...
 
@@ -73,61 +136,122 @@ Inicializando bitácora...
 > Protegiendo el océano.
 
 Sistema listo."
-                    ></h1>
+></h1>
                 </div>
+
                 <div class="hero-console__bottom">
-                    <span>NDS CONSOLE v1.0</span>
-                    <span>UTC 00:00</span>
+
+                    <span>
+                        NDS CONSOLE v1.0
+                    </span>
+
+                    <span>
+                        UTC 00:00
+                    </span>
+
                 </div>
+
             </div>
+
         </div>
-        <p class="hero__slogan">
+
+        <p
+            class="hero__slogan"
+            data-i18n="hero.slogan"
+        >
             El océano como guía, la sostenibilidad y el bienestar como destino
         </p>
+
         <div class="hero__bottom">
-            <p class="hero__description">
+
+            <p
+                class="hero__description"
+                data-i18n="hero.description"
+            >
                 Documentando la realidad de vivir, navegar y explorar de forma sustentable
             </p>
+
             <div class="hero-actions">
-                <a href="#episodios" class="hero-actions__link">
+
+                <a
+                    href="#episodios"
+                    class="hero-actions__link"
+                    data-i18n="hero.episodes"
+                >
                     Ver episodios
                 </a>
-                <a href="#nosotros" class="hero-actions__button">
+
+                <a
+                    href="#nosotros"
+                    class="hero-actions__button"
+                    data-i18n="hero.sailWithUs"
+                >
                     Navegá con nosotros
                 </a>
+
             </div>
+
             <a href="#nosotros" class="hero-scroll">
+
                 <span class="hero-scroll__line"></span>
-                <span class="hero-scroll__text">
+
+                <span
+                    class="hero-scroll__text"
+                    data-i18n="hero.scroll"
+                >
                     Scroll
                 </span>
+
             </a>
+
         </div>
+
     </div>
+
     <p class="hero__vertical-text">
         NDS — NEED DEVELOPS SKILLS — VAASAILING.COM
     </p>
+
 </section>
 
 <!--? about-->
 <section class="about" id="nosotros">
+
     <div class="about__header">
-        <p class="about__eyebrow">
+
+        <p
+            class="about__eyebrow"
+            data-i18n="about.eyebrow"
+        >
             Nuestra historia. Nuestro propósito
         </p>
-        <h2 class="about__title">
+
+        <h2
+            class="about__title"
+            data-i18n="about.title"
+        >
             ¿Qué es todo esto?
         </h2>
+
         <div class="about__wave" aria-hidden="true">
             <span></span>
             <span></span>
             <span></span>
         </div>
+
     </div>
+
+
     <div class="about__grid">
-        <!-- CARDS-->
+
+        <!-- =========================
+             CARD 1
+        ========================== -->
+
         <article class="about-card">
+
             <div class="about-card__icon" aria-hidden="true">
+
                 <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -139,12 +263,14 @@ Sistema listo."
                         stroke-width="1.3"
                         stroke-linecap="round"
                     />
+
                     <path
                         d="M3 12C5 10 7 10 9 12C11 14 13 14 15 12C17 10 19 10 21 12"
                         stroke="currentColor"
                         stroke-width="1.3"
                         stroke-linecap="round"
                     />
+
                     <path
                         d="M3 16C5 14 7 14 9 16C11 18 13 18 15 16C17 14 19 14 21 16"
                         stroke="currentColor"
@@ -152,19 +278,40 @@ Sistema listo."
                         stroke-linecap="round"
                     />
                 </svg>
+
             </div>
-            <span class="about-card__number">01</span>
-            <h3 class="about-card__title">
+
+            <span class="about-card__number">
+                01
+            </span>
+
+            <h3
+                class="about-card__title"
+                data-i18n-html="about.card1.title"
+            >
                 Quiénes somos
             </h3>
+
             <span class="about-card__line"></span>
-            <p class="about-card__text">
+
+            <p
+                class="about-card__text"
+                data-i18n="about.card1.text"
+            >
                 Somos Lucía y Simón, una pareja que eligió construir su vida alrededor del mar.
             </p>
+
         </article>
 
+
+        <!-- =========================
+             CARD 2
+        ========================== -->
+
         <article class="about-card">
+
             <div class="about-card__icon" aria-hidden="true">
+
                 <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -176,18 +323,21 @@ Sistema listo."
                         stroke-width="1.3"
                         stroke-linejoin="round"
                     />
+
                     <path
                         d="M12 7V17"
                         stroke="currentColor"
                         stroke-width="1.3"
                         stroke-linecap="round"
                     />
+
                     <path
                         d="M12 12L9.5 9.5"
                         stroke="currentColor"
                         stroke-width="1.3"
                         stroke-linecap="round"
                     />
+
                     <path
                         d="M12 14.5L14.5 12"
                         stroke="currentColor"
@@ -195,20 +345,41 @@ Sistema listo."
                         stroke-linecap="round"
                     />
                 </svg>
+
             </div>
-            <span class="about-card__number">02</span>
-            <h3 class="about-card__title">
+
+            <span class="about-card__number">
+                02
+            </span>
+
+            <h3
+                class="about-card__title"
+                data-i18n-html="about.card2.title"
+            >
                 Cómo nace<br>
                 VA'A Sailing
             </h3>
+
             <span class="about-card__line"></span>
-            <p class="about-card__text">
+
+            <p
+                class="about-card__text"
+                data-i18n="about.card2.text"
+            >
                 Nace en 2017, de una incomodidad. De ver de cerca la contaminación y las contradicciones de la industria náutica.
             </p>
+
         </article>
 
+
+        <!-- =========================
+             CARD 3
+        ========================== -->
+
         <article class="about-card">
+
             <div class="about-card__icon" aria-hidden="true">
+
                 <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -223,6 +394,7 @@ Sistema listo."
                         stroke="currentColor"
                         stroke-width="1.3"
                     />
+
                     <path
                         d="M9 7L10.2 4.8H13.8L15 7"
                         stroke="currentColor"
@@ -230,6 +402,7 @@ Sistema listo."
                         stroke-linecap="round"
                         stroke-linejoin="round"
                     />
+
                     <circle
                         cx="12"
                         cy="12.5"
@@ -238,20 +411,41 @@ Sistema listo."
                         stroke-width="1.3"
                     />
                 </svg>
+
             </div>
-            <span class="about-card__number">03</span>
-            <h3 class="about-card__title">
+
+            <span class="about-card__number">
+                03
+            </span>
+
+            <h3
+                class="about-card__title"
+                data-i18n-html="about.card3.title"
+            >
                 Qué vamos<br>
                 a hacer
             </h3>
+
             <span class="about-card__line"></span>
-            <p class="about-card__text">
+
+            <p
+                class="about-card__text"
+                data-i18n="about.card3.text"
+            >
                 En 2026 comenzamos una expedición: dar la vuelta al mundo a bordo del NDS Zero.
             </p>
+
         </article>
 
+
+        <!-- =========================
+             CARD 4
+        ========================== -->
+
         <article class="about-card">
+
             <div class="about-card__icon" aria-hidden="true">
+
                 <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -264,18 +458,21 @@ Sistema listo."
                         stroke="currentColor"
                         stroke-width="1.3"
                     />
+
                     <path
                         d="M4 12H20"
                         stroke="currentColor"
                         stroke-width="1.3"
                         stroke-linecap="round"
                     />
+
                     <path
                         d="M12 4C14 6.2 15 8.8 15 12C15 15.2 14 17.8 12 20"
                         stroke="currentColor"
                         stroke-width="1.3"
                         stroke-linecap="round"
                     />
+
                     <path
                         d="M12 4C10 6.2 9 8.8 9 12C9 15.2 10 17.8 12 20"
                         stroke="currentColor"
@@ -283,42 +480,78 @@ Sistema listo."
                         stroke-linecap="round"
                     />
                 </svg>
+
             </div>
-            <span class="about-card__number">04</span>
-            <h3 class="about-card__title">
+
+            <span class="about-card__number">
+                04
+            </span>
+
+            <h3
+                class="about-card__title"
+                data-i18n-html="about.card4.title"
+            >
                 Por qué<br>
                 lo hacemos
             </h3>
+
             <span class="about-card__line"></span>
-            <p class="about-card__text">
+
+            <p
+                class="about-card__text"
+                data-i18n="about.card4.text"
+            >
                 Porque creemos que el océano no es infinito y sentimos la responsabilidad de actuar.
             </p>
+
         </article>
+
     </div>
+
 </section>
 
 <!--? sustentability-->
+
 <section class="sustainability" id="sustentabilidad">
+
     <div class="sustainability__content">
-        <p class="sustainability__label">
-            NDS · NEED DEVELOPS SKILLS
-        </p>
-        <h2 class="sustainability__title">
-            “DEVOLVERLE AL MAR TODO LO QUE NOS DÁ.”
+
+        <p
+    class="sustainability__label"
+    data-i18n="sustainability.label"
+>
+    NDS · NEED DEVELOPS SKILLS
+</p>
+        <h2
+            class="sustainability__title"
+            data-i18n="sustainability.title"
+        >
+            “DEVOLVERLE AL MAR TODO LO QUE NOS DA.”
         </h2>
-        <p class="sustainability__subtitle">
+
+        <p
+            class="sustainability__subtitle"
+            data-i18n="sustainability.subtitle"
+        >
             La sustentabilidad es un hábito.
         </p>
+
         <span class="sustainability__line"></span>
+
         <div class="sustainability__description">
-            <p>
+
+            <p data-i18n="sustainability.description1">
                 No existe la sustentabilidad al 100%, pero podemos hacer grandes cambios.
             </p>
-            <p>
+
+            <p data-i18n="sustainability.description2">
                 Cualquiera puede navegar. Se puede vivir con menos.
             </p>
+
         </div>
+
     </div>
+
 </section>
 
 <!--? carrusel - bitacora-->
@@ -465,60 +698,35 @@ Sistema listo."
     </div>
 </section>
 
-<!-- =========================
-     EPISODIOS
-========================= -->
+<!--? episodios-->
 
 <section class="episodes" id="episodios">
-
     <div class="episodes__container">
-
-        <!-- Encabezado -->
-
-        <header class="episodes__header reveal">
-
+        <div class="episodes__header reveal">
             <div class="episodes__heading">
-
                 <span class="episodes__eyebrow">
                     VA'A SAILING
                 </span>
-
                 <h2 class="episodes__title">
                     Episodios
                 </h2>
-
             </div>
-
             <p class="episodes__intro">
                 Historias reales de navegación, aprendizajes, desafíos
                 y momentos que forman parte de nuestra vida en el mar.
             </p>
-
-        </header>
-
-
-        <!-- Línea decorativa -->
-
+        </div>
         <div class="episodes__divider reveal">
-
             <span class="episodes__divider-label">
                 <span class="episodes__divider-icon">▶</span>
                 Temporada 1
             </span>
-
             <span class="episodes__divider-line"></span>
-
         </div>
 
-
-        <!-- Grilla de episodios -->
-
+        <!-- grilla episodios-->
         <div class="episodes__grid">
-
-            <!-- Episodio 00 -->
-
             <article class="episode-card reveal">
-
                 <a
                     href="https://www.youtube.com/watch?v=QIgOoQ4q2LM&t=2s"
                     class="episode-card__media"
@@ -526,7 +734,6 @@ Sistema listo."
                     rel="noopener noreferrer"
                     aria-label="Ver Capítulo 0 - El comienzo en YouTube"
                 >
-
                     <img
                         src="https://img.youtube.com/vi/QIgOoQ4q2LM/maxresdefault.jpg"
                         onerror="this.onerror=null; this.src='https://img.youtube.com/vi/QIgOoQ4q2LM/hqdefault.jpg';"
@@ -534,31 +741,23 @@ Sistema listo."
                         class="episode-card__image"
                         loading="lazy"
                     >
-
                     <span class="episode-card__number">
                         EP. 00
                     </span>
-
                     <span class="episode-card__play">
                         <span class="episode-card__play-icon">▶</span>
                     </span>
-
                     <span class="episode-card__overlay"></span>
-
                 </a>
-
                 <div class="episode-card__content">
-
                     <p class="episode-card__meta">
                         Temporada 1
                         <span></span>
                         El comienzo
                     </p>
-
                     <h3 class="episode-card__title">
                         Dejamos todo para vivir en el mar
                     </h3>
-
                     <p class="episode-card__description">
                         Este es el comienzo de todo. Lucía y Simón toman la
                         decisión de dejar atrás la vida conocida para perseguir
@@ -566,7 +765,6 @@ Sistema listo."
                         mundo. Una historia de cambios, incertidumbre y el
                         primer paso hacia una vida guiada por el océano.
                     </p>
-
                     <a
                         href="https://www.youtube.com/watch?v=QIgOoQ4q2LM&t=2s"
                         class="episode-card__link"
@@ -576,17 +774,10 @@ Sistema listo."
                         <span>Ver episodio</span>
                         <span class="episode-card__arrow">→</span>
                     </a>
-
                 </div>
-
             </article>
 
-<!-- =========================
-     EPISODIO 01
-========================= -->
-
 <article class="episode-card reveal">
-
     <a
         href="https://www.youtube.com/watch?v=GBdtsZleE5o"
         class="episode-card__media"
@@ -594,7 +785,6 @@ Sistema listo."
         rel="noopener noreferrer"
         aria-label="Ver Episodio 01 en YouTube"
     >
-
         <img
             src="https://img.youtube.com/vi/GBdtsZleE5o/maxresdefault.jpg"
             onerror="this.onerror=null;this.src='https://img.youtube.com/vi/GBdtsZleE5o/hqdefault.jpg';"
@@ -602,32 +792,23 @@ Sistema listo."
             class="episode-card__image"
             loading="lazy"
         >
-
         <span class="episode-card__number">
             EP. 01
         </span>
-
         <span class="episode-card__play">
             <span class="episode-card__play-icon">▶</span>
         </span>
-
         <span class="episode-card__overlay"></span>
-
     </a>
-
-
     <div class="episode-card__content">
-
         <p class="episode-card__meta">
             Temporada 1
             <span></span>
             Episodio 01
         </p>
-
         <h3 class="episode-card__title">
             Comienza la aventura
         </h3>
-
         <p class="episode-card__description">
             Después de tomar la decisión de cambiar de vida, llega el
             momento de dar los primeros pasos. Entre preparativos,
@@ -635,7 +816,6 @@ Sistema listo."
             en una realidad y el océano deja de ser un sueño para
             transformarse en el nuevo hogar.
         </p>
-
         <a
             href="https://www.youtube.com/watch?v=GBdtsZleE5o"
             class="episode-card__link"
@@ -645,17 +825,10 @@ Sistema listo."
             <span>Ver episodio</span>
             <span class="episode-card__arrow">→</span>
         </a>
-
     </div>
-
 </article>
 
-<!-- =========================
-     EPISODIO 02
-========================= -->
-
 <article class="episode-card reveal">
-
     <a
         href="https://www.youtube.com/watch?v=9tk99JHjqD0"
         class="episode-card__media"
@@ -663,7 +836,6 @@ Sistema listo."
         rel="noopener noreferrer"
         aria-label="Ver Capítulo 02 - Todo pasa por algo en YouTube"
     >
-
         <img
             src="https://img.youtube.com/vi/9tk99JHjqD0/maxresdefault.jpg"
             onerror="this.onerror=null; this.src='https://img.youtube.com/vi/9tk99JHjqD0/hqdefault.jpg';"
@@ -671,32 +843,23 @@ Sistema listo."
             class="episode-card__image"
             loading="lazy"
         >
-
         <span class="episode-card__number">
             EP. 02
         </span>
-
         <span class="episode-card__play">
             <span class="episode-card__play-icon">▶</span>
         </span>
-
         <span class="episode-card__overlay"></span>
-
     </a>
-
-
     <div class="episode-card__content">
-
         <p class="episode-card__meta">
             Temporada 1
             <span></span>
             Todo pasa por algo
         </p>
-
         <h3 class="episode-card__title">
             El día que esperábamos
         </h3>
-
         <p class="episode-card__description">
             Finalmente llega el momento que Lucía y Simón esperaron durante
             años: la entrega del barco. Pero cuando el sueño parece estar al
@@ -704,7 +867,6 @@ Sistema listo."
             inesperadas. Un episodio sobre paciencia, incertidumbre y aprender
             que, a veces, los planes cambian por una razón.
         </p>
-
         <a
             href="https://www.youtube.com/watch?v=9tk99JHjqD0"
             class="episode-card__link"
@@ -714,17 +876,10 @@ Sistema listo."
             <span>Ver episodio</span>
             <span class="episode-card__arrow">→</span>
         </a>
-
     </div>
-
 </article>
 
-<!-- =========================
-     EPISODIO 03
-========================= -->
-
 <article class="episode-card reveal">
-
     <a
         href="https://www.youtube.com/watch?v=VkZ4ztUDWiQ"
         class="episode-card__media"
@@ -732,7 +887,6 @@ Sistema listo."
         rel="noopener noreferrer"
         aria-label="Ver Episodio 03 - La primera navegación en YouTube"
     >
-
         <img
             src="https://img.youtube.com/vi/VkZ4ztUDWiQ/maxresdefault.jpg"
             onerror="this.onerror=null; this.src='https://img.youtube.com/vi/VkZ4ztUDWiQ/hqdefault.jpg';"
@@ -740,32 +894,23 @@ Sistema listo."
             class="episode-card__image"
             loading="lazy"
         >
-
         <span class="episode-card__number">
             EP. 03
         </span>
-
         <span class="episode-card__play">
             <span class="episode-card__play-icon">▶</span>
         </span>
-
         <span class="episode-card__overlay"></span>
-
     </a>
-
-
     <div class="episode-card__content">
-
         <p class="episode-card__meta">
             Temporada 1
             <span></span>
             Primera navegación
         </p>
-
         <h3 class="episode-card__title">
             La aventura comienza
         </h3>
-
         <p class="episode-card__description">
             Después de tanta espera, finalmente llega el momento de soltar
             amarras y navegar por primera vez a bordo de su nuevo hogar.
@@ -773,7 +918,6 @@ Sistema listo."
             Lucía y Simón comienzan a convertir aquel sueño lejano en una
             aventura real.
         </p>
-
         <a
             href="https://www.youtube.com/watch?v=VkZ4ztUDWiQ"
             class="episode-card__link"
@@ -781,51 +925,37 @@ Sistema listo."
             rel="noopener noreferrer"
         >
             <span>Ver episodio</span>
-            <span class="episode-card__arrow">→</span>
+            <span class="episode-card__arrow"> → </span>
         </a>
-
     </div>
 
+<!-- proximo episodio-->>
 </article>
-           
-            <!-- Próximo episodio -->
-
             <article class="episode-card episode-card--coming reveal">
-
                 <div class="episode-card__media episode-card__media--coming">
-
                     <div class="episode-card__coming-background">
-
                         <span class="episode-card__coming-circle">
                             <span>04</span>
                         </span>
-
                     </div>
-
                     <span class="episode-card__number">
                         Próximamente
                     </span>
-
                 </div>
-
                 <div class="episode-card__content">
-
                     <p class="episode-card__meta">
                         Nuevo episodio
                         <span></span>
                         Muy pronto
                     </p>
-
                     <h3 class="episode-card__title">
                         La travesía continúa
                     </h3>
-
                     <p class="episode-card__description">
                         Muy pronto vas a poder descubrir una nueva historia de
                         VA'A Sailing. Suscribite al canal para no perderte el
                         próximo episodio.
                     </p>
-
                     <a
                         href="https://www.youtube.com/@Vaasailing"
                         class="episode-card__link"
@@ -835,25 +965,79 @@ Sistema listo."
                         <span>Suscribirse</span>
                         <span class="episode-card__arrow">→</span>
                     </a>
-
                 </div>
-
             </article>
-
         </div>
         <!-- Fin de episodes__grid -->
-
     </div>
-    <!-- Fin de episodes__container -->
+</section>
 
+<!--? mapa-->
+
+<section class="sailing-map" id="mapa">
+    <div class="sailing-map__container">
+        <div class="sailing-map__header reveal">
+            <span class="sailing-map__eyebrow">
+                VA'A SAILING
+            </span>
+            <h2 class="sailing-map__title">
+                Mapa en vivo
+            </h2>
+            <p class="sailing-map__description">
+                Seguinos durante la travesía y descubrí nuestra posición actual.
+            </p>
+        </div>
+        <div class="sailing-map__frame reveal">
+            <div
+                id="sailingMap"
+                class="sailing-map__map"
+                aria-label="Mapa interactivo con la posición actual de VA'A Sailing"
+            ></div>
+            <button
+                class="sailing-map__center-button"
+                id="centerBoatButton"
+                type="button"
+                aria-label="Centrar mapa en la posición actual del barco"
+                title="Volver al barco"
+            >
+                <span class="sailing-map__center-icon"></span>
+            </button>
+        </div>
+        <div class="sailing-map__footer">
+            <div class="sailing-map__position">
+                <span class="sailing-map__status-dot"></span>
+                <span>
+                    Posición actual:
+                </span>
+                <strong id="boatCoordinates">
+                    Cargando coordenadas...
+                </strong>
+            </div>
+            <p class="sailing-map__updated">
+                Última actualización:
+                <time id="boatLastUpdate">
+                    —
+                </time>
+            </p>
+        </div>
+    </div>
 </section>
 
 </main>
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+></script>
+
 
 <script src="js/main.js"></script>
+<script src="js/idioma.js"></script>
 <script src="js/hero.js"></script>
 <script src="js/about_is.js"></script>
 <script src="js/logbook.js"></script>
+<script src="js/map.js"></script>
+
 </body>
 
 </html>

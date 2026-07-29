@@ -2482,3 +2482,638 @@ button {
     }
 
 }
+
+/* =========================
+   MAPA EN VIVO
+========================= */
+
+.sailing-map {
+    position: relative;
+
+    padding: 100px 42px;
+
+    overflow: hidden;
+
+    background-color: #07131b;
+    color: #f4f1e8;
+}
+
+
+/* Contenedor */
+
+.sailing-map__container {
+    width: 100%;
+    max-width: 1380px;
+    margin: 0 auto;
+}
+
+
+/* Encabezado */
+
+.sailing-map__header {
+    max-width: 720px;
+    margin-bottom: 42px;
+}
+
+.sailing-map__eyebrow {
+    display: block;
+
+    margin-bottom: 16px;
+
+    color: #7fb39f;
+
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.sailing-map__title {
+    margin: 0 0 16px;
+
+    color: #f4f1e8;
+
+    font-size: clamp(38px, 5vw, 70px);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.sailing-map__description {
+    max-width: 610px;
+    margin: 0;
+
+    color: rgba(244, 241, 232, 0.68);
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* Marco */
+
+.sailing-map__frame {
+    position: relative;
+
+    width: 100%;
+    height: 620px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(244, 241, 232, 0.16);
+    border-radius: 3px;
+
+    background-color: #081722;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.24),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+
+/* Mapa */
+
+.sailing-map__map {
+    width: 100%;
+    height: 100%;
+
+    background-color: #081722;
+}
+
+
+/* Oscurece suavemente el mapa */
+
+.sailing-map__frame::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+    z-index: 400;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(4, 12, 18, 0.08) 0%,
+            transparent 22%,
+            transparent 75%,
+            rgba(4, 12, 18, 0.16) 100%
+        );
+}
+
+
+/* Botón para centrar */
+
+.sailing-map__center-button {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    z-index: 500;
+
+    width: 48px;
+    height: 48px;
+    padding: 0;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(244, 241, 232, 0.35);
+    border-radius: 3px;
+
+    background-color: rgba(7, 19, 27, 0.88);
+    color: #f4f1e8;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.sailing-map__center-button:hover {
+    border-color: #7fb39f;
+
+    background-color: #5c9782;
+
+    transform: translateY(-2px);
+}
+
+.sailing-map__center-button:focus-visible {
+    outline: 2px solid #7fb39f;
+    outline-offset: 4px;
+}
+
+
+/* Ícono estilo mira */
+
+.sailing-map__center-icon {
+    position: relative;
+
+    width: 18px;
+    height: 18px;
+
+    display: block;
+
+    border: 1.5px solid currentColor;
+    border-radius: 50%;
+}
+
+.sailing-map__center-icon::before,
+.sailing-map__center-icon::after {
+    content: "";
+
+    position: absolute;
+
+    background-color: currentColor;
+}
+
+.sailing-map__center-icon::before {
+    top: -5px;
+    left: 50%;
+
+    width: 1px;
+    height: 26px;
+
+    transform: translateX(-50%);
+}
+
+.sailing-map__center-icon::after {
+    top: 50%;
+    left: -5px;
+
+    width: 26px;
+    height: 1px;
+
+    transform: translateY(-50%);
+}
+
+
+/* Pie del mapa */
+
+.sailing-map__footer {
+    padding-top: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    color: rgba(244, 241, 232, 0.62);
+
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.sailing-map__position {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sailing-map__position strong {
+    color: #7fb39f;
+    font-weight: 500;
+}
+
+.sailing-map__status-dot {
+    width: 7px;
+    height: 7px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background-color: #83c99d;
+
+    box-shadow: 0 0 12px rgba(131, 201, 157, 0.8);
+
+    animation: sailingMapPulse 2.2s ease-in-out infinite;
+}
+
+.sailing-map__updated {
+    margin: 0;
+
+    text-align: right;
+}
+
+.sailing-map__updated time {
+    color: #f4f1e8;
+}
+
+
+/* =========================
+   LEAFLET PERSONALIZADO
+========================= */
+
+.sailing-map .leaflet-container {
+    font-family: inherit;
+}
+
+
+/* Botones de zoom */
+
+.sailing-map .leaflet-control-zoom {
+    margin-top: 20px;
+    margin-left: 20px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(244, 241, 232, 0.35);
+    border-radius: 3px;
+
+    box-shadow: none;
+}
+
+.sailing-map .leaflet-control-zoom a {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    border-bottom: 1px solid rgba(244, 241, 232, 0.18);
+
+    background-color: rgba(7, 19, 27, 0.9);
+    color: #f4f1e8;
+
+    font-size: 22px;
+    line-height: 1;
+
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.sailing-map .leaflet-control-zoom a:last-child {
+    border-bottom: 0;
+}
+
+.sailing-map .leaflet-control-zoom a:hover {
+    background-color: #5c9782;
+    color: #ffffff;
+}
+
+
+/* Atribución */
+
+.sailing-map .leaflet-control-attribution {
+    padding: 4px 7px;
+
+    background-color: rgba(7, 19, 27, 0.74);
+    color: rgba(244, 241, 232, 0.5);
+
+    font-size: 8px;
+}
+
+.sailing-map .leaflet-control-attribution a {
+    color: rgba(244, 241, 232, 0.72);
+}
+
+
+/* Popup */
+
+.sailing-map .leaflet-popup-content-wrapper {
+    border: 1px solid rgba(127, 179, 159, 0.35);
+    border-radius: 3px;
+
+    background-color: rgba(7, 19, 27, 0.96);
+    color: #f4f1e8;
+
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
+.sailing-map .leaflet-popup-tip {
+    background-color: rgba(7, 19, 27, 0.96);
+}
+
+.sailing-map .leaflet-popup-content {
+    margin: 16px 18px;
+
+    line-height: 1.6;
+}
+
+.sailing-map .leaflet-popup-close-button {
+    color: rgba(244, 241, 232, 0.6);
+}
+
+.sailing-map .leaflet-popup-close-button:hover {
+    color: #f4f1e8;
+}
+
+
+/* Contenido popup */
+
+.boat-popup {
+    min-width: 155px;
+}
+
+.boat-popup__eyebrow {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #7fb39f;
+
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.boat-popup__title {
+    margin: 0 0 7px;
+
+    color: #f4f1e8;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.boat-popup__text {
+    margin: 0;
+
+    color: rgba(244, 241, 232, 0.62);
+
+    font-size: 10px;
+    letter-spacing: 0.6px;
+}
+
+
+/* =========================
+   MARCADOR DEL BARCO
+========================= */
+
+.boat-marker {
+    position: relative;
+
+    width: 58px;
+    height: 58px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(151, 211, 173, 0.9);
+    border-radius: 50%;
+
+    background-color: rgba(8, 29, 30, 0.88);
+
+    box-shadow:
+        0 0 0 7px rgba(92, 151, 130, 0.12),
+        0 0 30px rgba(92, 151, 130, 0.4);
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    animation: boatMarkerFloat 3s ease-in-out infinite;
+}
+
+.boat-marker::before {
+    content: "";
+
+    position: absolute;
+    inset: -10px;
+
+    border: 1px solid rgba(127, 179, 159, 0.22);
+    border-radius: 50%;
+
+    animation: boatMarkerRadar 2.5s ease-out infinite;
+}
+
+
+/* Barco dibujado con CSS */
+
+.boat-marker__icon {
+    position: relative;
+
+    width: 25px;
+    height: 29px;
+
+    display: block;
+}
+
+.boat-marker__mast {
+    position: absolute;
+    left: 12px;
+    top: 2px;
+
+    width: 1px;
+    height: 21px;
+
+    background-color: #f4f1e8;
+}
+
+.boat-marker__sail {
+    position: absolute;
+    top: 3px;
+    left: 2px;
+
+    width: 0;
+    height: 0;
+
+    border-right: 9px solid #f4f1e8;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+}
+
+.boat-marker__sail--small {
+    top: 8px;
+    left: 14px;
+
+    border-right: 0;
+    border-left: 7px solid rgba(244, 241, 232, 0.72);
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+}
+
+.boat-marker__hull {
+    position: absolute;
+    bottom: 2px;
+    left: 1px;
+
+    width: 24px;
+    height: 6px;
+
+    border-radius: 0 0 12px 12px;
+
+    background-color: #f4f1e8;
+}
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes sailingMapPulse {
+    0%,
+    100% {
+        opacity: 0.55;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes boatMarkerFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes boatMarkerRadar {
+    0% {
+        opacity: 0.7;
+        transform: scale(0.75);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.35);
+    }
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+    .sailing-map {
+        padding: 85px 30px;
+    }
+
+    .sailing-map__frame {
+        height: 540px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sailing-map {
+        padding: 75px 22px;
+    }
+
+    .sailing-map__header {
+        margin-bottom: 30px;
+    }
+
+    .sailing-map__frame {
+        height: 470px;
+    }
+
+    .sailing-map__footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .sailing-map__updated {
+        text-align: left;
+    }
+
+    .sailing-map__position {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 576px) {
+    .sailing-map {
+        padding: 65px 16px;
+    }
+
+    .sailing-map__title {
+        font-size: 36px;
+    }
+
+    .sailing-map__description {
+        font-size: 14px;
+    }
+
+    .sailing-map__frame {
+        height: 420px;
+    }
+
+    .sailing-map__center-button {
+        right: 12px;
+        bottom: 12px;
+
+        width: 44px;
+        height: 44px;
+    }
+
+    .sailing-map .leaflet-control-zoom {
+        margin-top: 12px;
+        margin-left: 12px;
+    }
+
+    .sailing-map .leaflet-control-zoom a {
+        width: 38px;
+        height: 38px;
+    }
+
+    .sailing-map__footer {
+        font-size: 9px;
+        line-height: 1.6;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .boat-marker,
+    .boat-marker::before,
+    .sailing-map__status-dot {
+        animation: none;
+    }
+}
