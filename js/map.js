@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const sailingData = {
 
         currentPosition: {
-            latitude: 40.000,
+            latitude: 29.0008,
             longitude: 20.7069
         },
 
