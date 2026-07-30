@@ -2977,7 +2977,6 @@ button {
     margin: 0 auto;
 }
 
-
 /* =========================
    ENCABEZADO
 ========================= */
@@ -3079,32 +3078,39 @@ button {
 
 .nds-zero__features {
     position: relative;
-
-    margin-top: 68px;
-    padding-top: 34px;
+    width: 100%;
+    margin-top: 72px;
+    padding: 0 30px;
 
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: clamp(28px, 5vw, 80px);
+    column-gap: 70px;
+
+    align-items: start;
 }
+
+
+/* =========================
+   ONDA
+========================= */
 
 .nds-zero__wave {
     position: absolute;
-    top: -15px;
+    top: -21px;
     left: 50%;
+    z-index: 1;
 
-    width: 105vw;
+    width: calc(100% + 90px);
     height: 95px;
 
     overflow: visible;
-
     transform: translateX(-50%);
     pointer-events: none;
 }
 
 .nds-zero__wave-path {
     fill: none;
-    stroke: rgba(129, 186, 158, 0.75);
+    stroke: rgba(129, 186, 158, 0.78);
     stroke-width: 1.2;
 
     stroke-dasharray: 1800;
@@ -3117,20 +3123,42 @@ button {
     stroke-dashoffset: 0;
 }
 
+
+/* =========================
+   BLOQUES
+========================= */
+
 .nds-feature {
     position: relative;
     z-index: 2;
+
+    width: 100%;
+    max-width: 265px;
+
+    justify-self: center;
 }
 
+
+/* =========================
+   ÍCONOS
+========================= */
+
 .nds-feature__icon {
+    position: relative;
+    z-index: 3;
+
     width: 52px;
     height: 52px;
-    margin-bottom: 15px;
+    margin: 0 0 16px;
 
     color: #8abea5;
+    border-radius: 50%;
+
+    background-color: rgba(3, 20, 29, 0.983);
 }
 
 .nds-feature__icon svg {
+    display: block;
     width: 100%;
     height: 100%;
 
@@ -3141,6 +3169,56 @@ button {
     stroke-linejoin: round;
 }
 
+/* =========================
+   BLOQUES
+========================= */
+
+.nds-feature {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 265px;
+
+    justify-self: center;
+}
+
+
+/* =========================
+   ÍCONOS
+========================= */
+
+.nds-feature__icon {
+    width: 52px;
+    height: 52px;
+
+    margin: 0 0 16px;
+
+    color: #8abea5;
+}
+
+.nds-feature__icon svg {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    fill: rgba(3, 20, 29, 0.32);
+    stroke: currentColor;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    filter: drop-shadow(
+        0 0 8px rgba(138, 190, 165, 0.08)
+    );
+}
+
+
+/* =========================
+   TÍTULOS
+========================= */
+
 .nds-feature__title {
     margin: 0 0 8px;
 
@@ -3148,37 +3226,53 @@ button {
 
     font-size: 11px;
     font-weight: 500;
-    letter-spacing: 2.4px;
+    line-height: 1.35;
+    letter-spacing: 2.35px;
     text-transform: uppercase;
+
+    white-space: nowrap;
 }
+
+
+/* =========================
+   LÍNEA INFERIOR
+========================= */
 
 .nds-feature__line {
     display: block;
+
     width: 21px;
     height: 1px;
+
     margin-bottom: 11px;
 
     background-color: #7faf99;
 
-    transition: width 0.6s ease;
+    transition:
+        width 0.6s ease,
+        background-color 0.4s ease;
 }
 
 .nds-feature:hover .nds-feature__line {
     width: 52px;
+    background-color: #9acbb4;
 }
+
+
+/* =========================
+   DESCRIPCIÓN
+========================= */
 
 .nds-feature__text {
     max-width: 245px;
     margin: 0;
 
-    color: rgba(244, 241, 232, 0.7);
+    color: rgba(244, 241, 232, 0.72);
 
     font-size: 12px;
     font-weight: 300;
     line-height: 1.55;
 }
-
-
 /* =========================
    ESPECIFICACIONES
 ========================= */
@@ -3298,6 +3392,19 @@ button {
 
 .nds-zero__features .nds-feature:nth-of-type(4) {
     transition-delay: 0.44s;
+}
+
+.nds-zero__wave{
+    animation: waveFloat 8s ease-in-out infinite;
+}
+
+@keyframes waveFloat{
+    0%,100%{
+        transform:translateX(-50%) translateY(0);
+    }
+    50%{
+        transform:translateX(-50%) translateY(3px);
+    }
 }
 
 
@@ -3496,3 +3603,872 @@ button {
     }
 }
 
+/* =========================
+   PRÓXIMAS TRAVESÍAS
+========================= */
+
+.journeys {
+    position: relative;
+    min-height: 760px;
+    padding: 110px 60px 55px;
+
+    display: flex;
+    align-items: flex-end;
+
+    overflow: hidden;
+    isolation: isolate;
+
+    background-color: #061e28;
+}
+
+
+/* =========================
+   FONDOS
+========================= */
+
+.journeys__backgrounds {
+    position: absolute;
+    inset: 0;
+    z-index: -4;
+}
+
+
+.journeys__background {
+    position: absolute;
+    inset: 0;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    opacity: 0;
+    transform: scale(1.05);
+
+    transition:
+        opacity 900ms ease,
+        transform 7s ease;
+}
+
+
+.journeys__background--active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* =========================
+   CAPAS
+========================= */
+
+.journeys__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 25, 36, 0.96) 0%,
+            rgba(4, 33, 44, 0.83) 35%,
+            rgba(5, 33, 43, 0.35) 65%,
+            rgba(5, 26, 34, 0.55) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(4, 22, 30, 0.16) 0%,
+            rgba(4, 25, 33, 0.08) 45%,
+            rgba(3, 22, 30, 0.82) 100%
+        );
+}
+
+
+.journeys__texture {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    pointer-events: none;
+
+    opacity: 0.12;
+
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 3px,
+            rgba(255, 255, 255, 0.08) 4px
+        );
+}
+
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+.journeys__container {
+    width: min(100%, 1500px);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: minmax(380px, 1fr) minmax(520px, 620px);
+    align-items: end;
+    gap: 80px;
+}
+
+
+/* =========================
+   INFORMACIÓN
+========================= */
+
+.journeys__content {
+    max-width: 690px;
+}
+
+
+.journeys__information {
+    transition:
+        opacity 250ms ease,
+        transform 250ms ease,
+        filter 250ms ease;
+}
+
+
+.journeys__information--changing {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(4px);
+}
+
+
+.journeys__meta,
+.journeys__location,
+.journeys__technical {
+    font-family: "Courier New", monospace;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+
+.journeys__meta {
+    margin: 0 0 10px;
+
+    color: #8dd8b7;
+    font-size: 0.7rem;
+}
+
+
+.journeys__location {
+    margin: 0 0 14px;
+
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.62rem;
+}
+
+
+.journeys__title {
+    margin: 0;
+
+    color: #f5f1e8;
+    font-family: "Arial Narrow", "Roboto Condensed", sans-serif;
+    font-size: clamp(3.2rem, 6vw, 6.8rem);
+    font-weight: 800;
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+}
+
+
+.journeys__description {
+    max-width: 620px;
+    margin: 26px 0 0;
+
+    color: rgba(244, 241, 232, 0.75);
+    font-size: 0.95rem;
+    line-height: 1.85;
+}
+
+
+.journeys__technical {
+    margin-top: 24px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+
+    color: #b7d768;
+    font-size: 0.62rem;
+}
+
+
+.journeys__technical span {
+    position: relative;
+}
+
+
+.journeys__technical span:not(:last-child)::after {
+    content: "/";
+    position: absolute;
+    right: -14px;
+
+    color: rgba(255, 255, 255, 0.35);
+}
+
+
+/* =========================
+   BOTONES PRINCIPALES
+========================= */
+
+.journeys__actions {
+    margin-top: 34px;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+
+.journeys__details,
+.journeys__whatsapp {
+    min-height: 50px;
+    padding: 0 24px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Courier New", monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-decoration: none;
+
+    transition:
+        color 250ms ease,
+        background-color 250ms ease,
+        border-color 250ms ease,
+        transform 250ms ease;
+}
+
+
+.journeys__details {
+    color: #8dd8b7;
+    border-bottom: 1px solid #8dd8b7;
+    padding-inline: 0;
+}
+
+
+.journeys__details:hover {
+    color: #f5f1e8;
+    border-color: #f5f1e8;
+    transform: translateY(-2px);
+}
+
+
+.journeys__whatsapp {
+    gap: 10px;
+
+    color: #06291f;
+    background-color: #4ae578;
+}
+
+
+.journeys__whatsapp:hover {
+    background-color: #6aef91;
+    transform: translateY(-3px);
+}
+
+
+.journeys__whatsapp-icon {
+    font-size: 0.68rem;
+}
+
+
+/* =========================
+   NAVEGACIÓN
+========================= */
+
+.journeys__navigation {
+    margin-top: 70px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.journeys__arrow {
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    color: #f4f1e8;
+    background: rgba(6, 28, 38, 0.48);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    font-size: 1.15rem;
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        background-color 250ms ease,
+        border-color 250ms ease,
+        color 250ms ease,
+        transform 250ms ease;
+}
+
+
+.journeys__arrow:hover {
+    color: #082b2e;
+    background-color: #8dd8b7;
+    border-color: #8dd8b7;
+    transform: translateY(-3px);
+}
+
+
+.journeys__counter {
+    margin-left: 10px;
+
+    color: rgba(255, 255, 255, 0.55);
+    font-family: "Courier New", monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+}
+
+
+.journeys__counter [data-journey-current] {
+    color: #8dd8b7;
+}
+
+
+/* =========================
+   TARJETAS
+========================= */
+
+.journeys__cards {
+    min-height: 460px;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: end;
+    gap: 16px;
+}
+
+
+.journey-card {
+    position: relative;
+
+    height: 340px;
+    padding: 18px 18px 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    color: #f4f1e8;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(9, 49, 62, 0.94) 0%,
+            rgba(4, 33, 43, 0.98) 100%
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 13px;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    cursor: pointer;
+    outline: none;
+
+    transition:
+        height 500ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        border-color 300ms ease,
+        box-shadow 300ms ease;
+}
+
+
+.journey-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    opacity: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(105, 230, 183, 0.15),
+            transparent 55%
+        );
+
+    transition: opacity 350ms ease;
+}
+
+
+.journey-card:hover,
+.journey-card:focus-visible,
+.journey-card--expanded {
+    height: 455px;
+
+    transform: translateY(-14px);
+
+    border-color: rgba(110, 225, 184, 0.7);
+
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.46),
+        0 0 0 1px rgba(110, 225, 184, 0.1),
+        0 0 30px rgba(110, 225, 184, 0.08);
+}
+
+
+.journey-card:hover::before,
+.journey-card:focus-visible::before,
+.journey-card--expanded::before,
+.journey-card--active::before {
+    opacity: 1;
+}
+
+
+.journey-card--active {
+    border-color: rgba(110, 225, 184, 0.85);
+}
+/* =========================
+   CARD ACTIVA
+========================= */
+
+.journey-card--active {
+    transform: translateY(-10px);
+
+    border-color: rgba(110, 225, 184, 0.9);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(13, 74, 75, 0.98) 0%,
+            rgba(4, 43, 53, 0.98) 100%
+        );
+
+    box-shadow:
+        0 30px 65px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(110, 225, 184, 0.08),
+        0 0 35px rgba(110, 225, 184, 0.09);
+}
+
+
+.journey-card--active .journey-card__number {
+    color: rgba(141, 216, 183, 0.4);
+}
+
+
+.journey-card--active .journey-card__title {
+    color: #9de2c4;
+}
+
+
+.journey-card--active .journey-card__line {
+    left: 100%;
+}
+
+
+/* Línea superior animada */
+
+.journey-card__line {
+    position: absolute;
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #6ee1b8,
+        transparent
+    );
+
+    transition: left 700ms ease;
+}
+
+
+.journey-card:hover .journey-card__line,
+.journey-card:focus-visible .journey-card__line,
+.journey-card--active .journey-card__line {
+    left: 100%;
+}
+
+
+/* Parte superior */
+
+.journey-card__top {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+
+.journey-card__status {
+    padding: 5px 7px;
+
+    font-family: "Courier New", monospace;
+    font-size: 0.48rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+
+.journey-card__status--available {
+    color: #12342b;
+    background-color: #91c7aa;
+}
+
+
+.journey-card__status--complete {
+    color: #fff2e7;
+    background-color: #a54e2b;
+}
+
+
+.journey-card__number {
+    color: rgba(255, 255, 255, 0.16);
+    font-family: "Courier New", monospace;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+
+/* Ícono */
+
+.journey-card__icon {
+    position: relative;
+    z-index: 2;
+
+    min-height: 150px;
+
+    display: grid;
+    place-items: center;
+
+    color: #b7e4d1;
+    font-size: 2.4rem;
+
+    animation: journeyIconFloat 5s ease-in-out infinite;
+
+    transition:
+        min-height 500ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform 400ms ease;
+}
+
+
+.journey-card:hover .journey-card__icon,
+.journey-card:focus-visible .journey-card__icon,
+.journey-card--expanded .journey-card__icon {
+    min-height: 105px;
+    transform: scale(0.9);
+}
+
+
+@keyframes journeyIconFloat {
+
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -5px;
+    }
+}
+
+
+/* Parte principal */
+
+.journey-card__main {
+    position: relative;
+    z-index: 2;
+
+    margin-top: auto;
+}
+
+
+.journey-card__date {
+    display: block;
+    margin-bottom: 8px;
+
+    color: rgba(255, 255, 255, 0.6);
+    font-family: "Courier New", monospace;
+    font-size: 0.48rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+
+.journey-card__title {
+    margin: 0;
+
+    color: #f4f1e8;
+    font-size: 0.73rem;
+    line-height: 1.3;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+
+/* Contenido escondido */
+
+.journey-card__hidden {
+    position: relative;
+    z-index: 2;
+
+    max-height: 0;
+
+    opacity: 0;
+    overflow: hidden;
+
+    transform: translateY(24px);
+    filter: blur(3px);
+
+    transition:
+        max-height 500ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        opacity 350ms ease 80ms,
+        transform 450ms ease 60ms,
+        filter 350ms ease;
+}
+
+
+.journey-card:hover .journey-card__hidden,
+.journey-card:focus-visible .journey-card__hidden,
+.journey-card--expanded .journey-card__hidden {
+    max-height: 220px;
+
+    opacity: 1;
+
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+
+.journey-card__divider {
+    width: 100%;
+    height: 1px;
+    margin: 15px 0;
+
+    display: block;
+
+    background: linear-gradient(
+        90deg,
+        rgba(110, 225, 184, 0.8),
+        rgba(110, 225, 184, 0)
+    );
+}
+
+
+.journey-card__text {
+    margin: 0;
+
+    color: rgba(244, 241, 232, 0.67);
+    font-size: 0.67rem;
+    line-height: 1.65;
+}
+
+
+.journey-card__details {
+    margin-top: 13px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+
+.journey-card__details span {
+    padding: 4px 6px;
+
+    color: #94d5ba;
+    border: 1px solid rgba(148, 213, 186, 0.25);
+
+    font-family: "Courier New", monospace;
+    font-size: 0.45rem;
+    letter-spacing: 0.08em;
+}
+
+
+.journey-card__button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: #f4f1e8;
+    background: transparent;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.13);
+
+    font-family: "Courier New", monospace;
+    font-size: 0.52rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1200px) {
+
+    .journeys {
+        padding: 100px 32px 45px;
+    }
+
+    .journeys__container {
+        grid-template-columns: minmax(320px, 0.9fr) minmax(470px, 1.1fr);
+        gap: 45px;
+    }
+
+    .journeys__cards {
+        gap: 10px;
+    }
+
+    .journey-card {
+        padding-inline: 14px;
+    }
+
+}
+
+
+@media (max-width: 950px) {
+
+    .journeys {
+        min-height: auto;
+        padding: 100px 28px 60px;
+    }
+
+    .journeys__overlay {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(3, 25, 36, 0.84) 0%,
+                rgba(3, 25, 36, 0.66) 40%,
+                rgba(3, 25, 36, 0.96) 100%
+            );
+    }
+
+    .journeys__container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .journeys__content {
+        max-width: 720px;
+    }
+
+    .journeys__navigation {
+        margin-top: 45px;
+    }
+
+    .journeys__cards {
+        min-height: 455px;
+        max-width: 680px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .journeys {
+        padding: 80px 20px 45px;
+    }
+
+    .journeys__title {
+        font-size: clamp(3.1rem, 16vw, 5.2rem);
+    }
+
+    .journeys__description {
+        font-size: 0.88rem;
+    }
+
+    .journeys__technical {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .journeys__technical span::after {
+        display: none;
+    }
+
+    .journeys__actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .journeys__details,
+    .journeys__whatsapp {
+        width: 100%;
+    }
+
+    .journeys__details {
+        padding: 15px;
+        border: 1px solid rgba(141, 216, 183, 0.55);
+    }
+
+    .journeys__cards {
+        min-height: auto;
+
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .journey-card,
+    .journey-card:hover,
+    .journey-card:focus-visible {
+        height: 245px;
+        transform: none;
+    }
+
+    .journey-card--expanded {
+        height: 440px;
+        transform: translateY(-4px);
+    }
+
+    .journey-card__icon {
+        min-height: 90px;
+    }
+
+    .journey-card--expanded .journey-card__icon {
+        min-height: 65px;
+    }
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .journeys__background,
+    .journeys__information,
+    .journey-card,
+    .journey-card__hidden,
+    .journey-card__icon,
+    .journey-card__line {
+        animation: none;
+        transition: none;
+    }
+
+}

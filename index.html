@@ -1324,14 +1324,18 @@ Sistema listo."
                 preserveAspectRatio="none"
                 aria-hidden="true"
             >
-                <path
-                    class="nds-zero__wave-path"
-                    d="M0,58
-                       C120,25 200,100 330,60
-                       C470,18 540,92 680,56
-                       C820,20 900,98 1040,58
-                       C1175,20 1280,92 1440,50"
-                />
+               <path
+    class="nds-zero__wave-path"
+    d="
+        M 0 48
+        C 90 48, 130 25, 240 48
+        S 390 70, 480 48
+        S 630 25, 720 48
+        S 870 70, 960 48
+        S 1110 25, 1200 48
+        S 1350 70, 1440 48
+    "
+/>
             </svg>
 
             <article class="nds-feature nds-reveal">
@@ -1581,6 +1585,404 @@ Sistema listo."
 
 </section>
 
+<!-- =========================
+     PRÓXIMAS TRAVESÍAS
+========================= -->
+
+<section class="journeys" id="travesias">
+
+    <!-- =========================
+         FONDOS
+    ========================= -->
+
+    <div class="journeys__backgrounds" aria-hidden="true">
+
+        <div
+            class="journeys__background journeys__background--active"
+            data-journey-background="0"
+            style="background-image: url('img/playa-prueba1.jpg');"
+        ></div>
+
+        <div
+            class="journeys__background"
+            data-journey-background="1"
+            style="background-image: url('img/españa.jpg');"
+        ></div>
+
+        <div
+            class="journeys__background"
+            data-journey-background="2"
+            style="background-image: url('img/surf.jpg');"
+        ></div>
+
+    </div>
+
+
+    <!-- =========================
+         CAPAS VISUALES
+    ========================= -->
+
+    <div class="journeys__overlay" aria-hidden="true"></div>
+    <div class="journeys__texture" aria-hidden="true"></div>
+
+
+    <!-- =========================
+         CONTENIDO
+    ========================= -->
+
+    <div class="journeys__container">
+
+        <!-- Información de la travesía seleccionada -->
+
+        <div class="journeys__content">
+
+            <div class="journeys__information">
+
+                <p
+                    class="journeys__meta"
+                    data-journey-meta
+                >
+                    SEP 05 · 15 · 2026
+                </p>
+
+                <p
+                    class="journeys__location"
+                    data-journey-location
+                >
+                    GRAN CANARIA · TENERIFE · LA GOMERA · LA PALMA
+                </p>
+
+                <h2
+                    class="journeys__title"
+                    data-journey-title
+                >
+                    ISLAS CANARIAS
+                </h2>
+
+                <p
+                    class="journeys__description"
+                    data-journey-description
+                >
+                    Diez días explorando el archipiélago canario a bordo del
+                    NDS Zero. Volcanes, aguas profundas y navegación oceánica real.
+                </p>
+
+                <div class="journeys__technical">
+
+                    <span data-journey-price>
+                        USD 2.400 POR PERSONA
+                    </span>
+
+                    <span data-journey-availability>
+                        4 LUGARES DISPONIBLES
+                    </span>
+
+                    <span data-journey-duration>
+                        10 DÍAS
+                    </span>
+
+                </div>
+
+                <div class="journeys__actions">
+
+                    <a
+                        class="journeys__details"
+                        href="#islas-canarias"
+                        data-journey-link
+                    >
+                        DESCUBRIR VIAJE
+                    </a>
+
+                    <a
+                        class="journeys__whatsapp"
+                        href="https://wa.me/5490000000000"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-journey-whatsapp
+                    >
+                        <span
+                            class="journeys__whatsapp-icon"
+                            aria-hidden="true"
+                        >
+                            ●
+                        </span>
+
+                        WHATSAPP
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             SELECTOR DE TRAVESÍAS
+        ========================= -->
+
+        <div
+            class="journeys__cards"
+            role="tablist"
+            aria-label="Seleccionar travesía"
+        >
+
+            <!-- =========================
+                 CARD 01 · ISLAS CANARIAS
+            ========================= -->
+
+            <article
+                class="journey-card journey-card--active"
+                data-journey-card="0"
+                role="tab"
+                tabindex="0"
+                aria-selected="true"
+                aria-label="Seleccionar travesía Islas Canarias"
+            >
+
+                <div
+                    class="journey-card__line"
+                    aria-hidden="true"
+                ></div>
+
+                <div class="journey-card__top">
+
+                    <span
+                        class="journey-card__status journey-card__status--available"
+                    >
+                        DISPONIBLE
+                    </span>
+
+                    <span
+                        class="journey-card__number"
+                        aria-hidden="true"
+                    >
+                        01
+                    </span>
+
+                </div>
+
+                <div
+                    class="journey-card__icon"
+                    aria-hidden="true"
+                >
+                    ≋
+                </div>
+
+                <div class="journey-card__main">
+
+                    <span class="journey-card__date">
+                        SEP 05 · 15 · 2026
+                    </span>
+
+                    <h3 class="journey-card__title">
+                        ISLAS CANARIAS
+                    </h3>
+
+                </div>
+
+                <div class="journey-card__hidden">
+
+                    <span
+                        class="journey-card__divider"
+                        aria-hidden="true"
+                    ></span>
+
+                    <p class="journey-card__text">
+                        Volcanes, navegación oceánica y fondeos únicos durante
+                        diez días a bordo del NDS Zero.
+                    </p>
+
+                    <div class="journey-card__details">
+
+                        <span>10 DÍAS</span>
+                        <span>4 LUGARES</span>
+
+                    </div>
+
+                    <span class="journey-card__button">
+                        SELECCIONAR VIAJE
+                        <span aria-hidden="true">↗</span>
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================
+                 CARD 02 · COSTA ESPAÑOLA
+            ========================= -->
+
+            <article
+                class="journey-card"
+                data-journey-card="1"
+                role="tab"
+                tabindex="0"
+                aria-selected="false"
+                aria-label="Seleccionar travesía Costa Española"
+            >
+
+                <div
+                    class="journey-card__line"
+                    aria-hidden="true"
+                ></div>
+
+                <div class="journey-card__top">
+
+                    <span
+                        class="journey-card__status journey-card__status--available"
+                    >
+                        DISPONIBLE
+                    </span>
+
+                    <span
+                        class="journey-card__number"
+                        aria-hidden="true"
+                    >
+                        02
+                    </span>
+
+                </div>
+
+                <div
+                    class="journey-card__icon"
+                    aria-hidden="true"
+                >
+                    ⛵
+                </div>
+
+                <div class="journey-card__main">
+
+                    <span class="journey-card__date">
+                        SEP 20 · 26 · 2026
+                    </span>
+
+                    <h3 class="journey-card__title">
+                        COSTA ESPAÑOLA
+                    </h3>
+
+                </div>
+
+                <div class="journey-card__hidden">
+
+                    <span
+                        class="journey-card__divider"
+                        aria-hidden="true"
+                    ></span>
+
+                    <p class="journey-card__text">
+                        Una travesía costera entre pequeñas bahías, pueblos
+                        marítimos y noches bajo las estrellas.
+                    </p>
+
+                    <div class="journey-card__details">
+
+                        <span>7 DÍAS</span>
+                        <span>3 LUGARES</span>
+
+                    </div>
+
+                    <span class="journey-card__button">
+                        SELECCIONAR VIAJE
+                        <span aria-hidden="true">↗</span>
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================
+                 CARD 03 · CRUCE ATLÁNTICO
+            ========================= -->
+
+            <article
+                class="journey-card"
+                data-journey-card="2"
+                role="tab"
+                tabindex="0"
+                aria-selected="false"
+                aria-label="Seleccionar travesía Cruce Atlántico"
+            >
+
+                <div
+                    class="journey-card__line"
+                    aria-hidden="true"
+                ></div>
+
+                <div class="journey-card__top">
+
+                    <span
+                        class="journey-card__status journey-card__status--complete"
+                    >
+                        COMPLETO
+                    </span>
+
+                    <span
+                        class="journey-card__number"
+                        aria-hidden="true"
+                    >
+                        03
+                    </span>
+
+                </div>
+
+                <div
+                    class="journey-card__icon"
+                    aria-hidden="true"
+                >
+                    ⚓
+                </div>
+
+                <div class="journey-card__main">
+
+                    <span class="journey-card__date">
+                        NOV 20 · DIC 14 · 2026
+                    </span>
+
+                    <h3 class="journey-card__title">
+                        CRUCE ATLÁNTICO
+                    </h3>
+
+                </div>
+
+                <div class="journey-card__hidden">
+
+                    <span
+                        class="journey-card__divider"
+                        aria-hidden="true"
+                    ></span>
+
+                    <p class="journey-card__text">
+                        Una experiencia oceánica exigente, profunda y real.
+                        Semanas de navegación sin tierra a la vista.
+                    </p>
+
+                    <div class="journey-card__details">
+
+                        <span>24 DÍAS</span>
+                        <span>SIN LUGARES</span>
+
+                    </div>
+
+                    <span class="journey-card__button">
+                        SELECCIONAR EXPERIENCIA
+                        <span aria-hidden="true">↗</span>
+                    </span>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
 </main>
 <script
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -1588,13 +1990,14 @@ Sistema listo."
     crossorigin=""
 ></script>
 
-<script src="js/main.js"></script>
 <script src="js/idioma.js"></script>
 <script src="js/hero.js"></script>
 <script src="js/about_is.js"></script>
 <script src="js/logbook.js"></script>
 <script src="js/map.js"></script>
 <script src="js/nds.js"></script>
+<script src="js/journey.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 
