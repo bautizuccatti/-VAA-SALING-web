@@ -151,6 +151,61 @@ Sistema listo.`,
 
 "map.centerTitle":
     "Volver al barco",
+
+    // NDS ZERO
+
+"nds.eyebrow": "Nuestro barco",
+
+"nds.description1":
+    "Diseñado desde cero para navegar el mundo con el menor impacto posible. Casco de fibra de basalto, propulsión 100% eléctrica y solar.",
+
+"nds.description2":
+    "Ganador del Multihull del Año 2024. El barco perfecto para lo que hacemos:",
+
+"nds.description3":
+    "Ir lejos, sin dejar huella.",
+
+"nds.feature1.title":
+    "Energía limpia",
+
+"nds.feature1.text":
+    "Propulsión 100% eléctrica alimentada por energía solar. Navegamos sin emisiones.",
+
+"nds.feature2.title":
+    "Energía solar",
+
+"nds.feature2.text":
+    "5.880 W de paneles solares y baterías de alto rendimiento para autonomía total.",
+
+"nds.feature3.title":
+    "Construcción consciente",
+
+"nds.feature3.text":
+    "Casco de fibra de basalto volcánico y espuma PET reciclada. Huella de construcción 47% menor.",
+
+"nds.feature4.title":
+    "Diseñado para explorar",
+
+"nds.feature4.text":
+    "Cockpit delantero protegido, materiales robustos y diseño pensado para los rincones más remotos del planeta.",
+
+"nds.spec.length":
+    "Eslora",
+
+"nds.spec.beam":
+    "Manga",
+
+"nds.spec.solar":
+    "Solar",
+
+"nds.spec.solarUnit":
+    "W peak",
+
+"nds.spec.co2":
+    "CO₂",
+
+"nds.spec.co2Unit":
+    "Vs. construcción tradicional",
             
     },
 
@@ -306,6 +361,62 @@ System ready.`,
 
 "map.centerTitle":
     "Back to the boat",
+
+    // NDS ZERO
+
+"nds.eyebrow":
+    "Our vessel",
+
+"nds.description1":
+    "Designed from the ground up to sail the world with the lowest possible environmental impact. Built with a basalt fiber hull and powered by 100% electric and solar propulsion.",
+
+"nds.description2":
+    "Winner of the 2024 Multihull of the Year Award. The perfect boat for what we do:",
+
+"nds.description3":
+    "Go further, leaving no trace.",
+
+"nds.feature1.title":
+    "Clean energy",
+
+"nds.feature1.text":
+    "100% electric propulsion powered by solar energy. We sail with zero emissions.",
+
+"nds.feature2.title":
+    "Solar power",
+
+"nds.feature2.text":
+    "5,880 W of solar panels and high-performance batteries for complete autonomy.",
+
+"nds.feature3.title":
+    "Conscious construction",
+
+"nds.feature3.text":
+    "Basalt fiber hull and recycled PET foam. 47% lower construction footprint.",
+
+"nds.feature4.title":
+    "Built for exploration",
+
+"nds.feature4.text":
+    "Protected forward cockpit, durable materials, and a design made for the world's most remote destinations.",
+
+"nds.spec.length":
+    "Length",
+
+"nds.spec.beam":
+    "Beam",
+
+"nds.spec.solar":
+    "Solar",
+
+"nds.spec.solarUnit":
+    "W peak",
+
+"nds.spec.co2":
+    "CO₂",
+
+"nds.spec.co2Unit":
+    "Vs. conventional construction",
             
     }
 };
